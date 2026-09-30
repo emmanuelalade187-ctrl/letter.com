@@ -1,0 +1,482 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    overflow: hidden;
+
+    position: relative;
+
+    background: #ff758c;
+}
+
+
+/* =========================
+   COLORFUL BACKGROUND
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 20% 20%, #ff00cc, transparent 30%),
+        radial-gradient(circle at 80% 20%, #00eaff, transparent 30%),
+        radial-gradient(circle at 50% 80%, #ffe600, transparent 30%),
+        linear-gradient(
+            135deg,
+            #ff416c,
+            #ff4b2b,
+            #8e2de2,
+            #4facfe
+        );
+
+    background-size: 200% 200%;
+
+    animation: backgroundMove 10s ease infinite;
+
+    z-index: -2;
+}
+
+
+@keyframes backgroundMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* =========================
+   MESSAGE CARD
+========================= */
+
+.card {
+
+    width: min(90%, 850px);
+
+    padding: 55px 45px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.25);
+
+    color: white;
+
+    animation: cardAppear 1.5s ease;
+}
+
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================
+   FLOWER
+========================= */
+
+.flower {
+
+    font-size: 55px;
+
+    animation:
+        flowerFloat 3s ease-in-out infinite,
+        flowerRotate 5s linear infinite;
+}
+
+
+@keyframes flowerFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+@keyframes flowerRotate {
+
+    0% {
+        rotate: 0deg;
+    }
+
+    50% {
+        rotate: 8deg;
+    }
+
+    100% {
+        rotate: 0deg;
+    }
+}
+
+
+/* =========================
+   SMALL TITLE
+========================= */
+
+.small-title {
+
+    margin-top: 15px;
+
+    font-size: 13px;
+
+    letter-spacing: 5px;
+
+    font-weight: bold;
+
+    color: #fff;
+
+    opacity: 0.9;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+h1 {
+
+    margin-top: 15px;
+
+    font-size: clamp(35px, 6vw, 65px);
+
+    font-family: Georgia, serif;
+
+    animation: headingGlow 2s ease-in-out infinite alternate;
+}
+
+
+h1 span {
+
+    background: linear-gradient(
+        90deg,
+        #fff700,
+        #ff8a00,
+        #ff00cc,
+        #00ffff
+    );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    animation: textColors 4s linear infinite;
+}
+
+
+@keyframes textColors {
+
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 300%;
+    }
+}
+
+
+@keyframes headingGlow {
+
+    from {
+        text-shadow:
+            0 0 5px rgba(255,255,255,0.3);
+    }
+
+    to {
+        text-shadow:
+            0 0 25px rgba(255,255,255,0.8);
+    }
+}
+
+
+/* =========================
+   TYPING MESSAGE
+========================= */
+
+.message {
+
+    margin: 30px auto 0;
+
+    max-width: 700px;
+
+    min-height: 170px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(18px, 2.5vw, 25px);
+
+    line-height: 1.8;
+
+    color: #fff;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,0.2);
+}
+
+
+/* Cursor */
+
+.cursor {
+
+    display: inline-block;
+
+    width: 3px;
+
+    height: 28px;
+
+    background: white;
+
+    margin-left: 5px;
+
+    vertical-align: middle;
+
+    animation: blink 0.7s infinite;
+}
+
+
+@keyframes blink {
+
+    0%, 45% {
+        opacity: 1;
+    }
+
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   SIGNATURE
+========================= */
+
+.signature {
+
+    margin-top: 20px;
+
+    font-family: cursive;
+
+    font-size: 22px;
+
+    opacity: 0;
+
+    animation: signatureAppear 1.5s ease 10s forwards;
+}
+
+
+.signature span {
+
+    font-size: 18px;
+
+    color: #fff700;
+}
+
+
+@keyframes signatureAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+
+    margin-top: 30px;
+
+    padding: 13px 30px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        90deg,
+        #ff00cc,
+        #ff416c,
+        #ff8a00
+    );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.2);
+
+    transition: 0.3s;
+}
+
+
+button:hover {
+
+    transform: translateY(-5px) scale(1.05);
+
+    box-shadow:
+        0 12px 35px rgba(255,255,255,0.4);
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts span {
+
+    position: absolute;
+
+    bottom: -50px;
+
+    font-size: 25px;
+
+    animation: heartFloat 8s linear infinite;
+
+    opacity: 0;
+}
+
+
+.hearts span:nth-child(1) {
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.hearts span:nth-child(2) {
+    left: 18%;
+    animation-delay: 2s;
+}
+
+.hearts span:nth-child(3) {
+    left: 35%;
+    animation-delay: 4s;
+}
+
+.hearts span:nth-child(4) {
+    left: 52%;
+    animation-delay: 1s;
+}
+
+.hearts span:nth-child(5) {
+    left: 68%;
+    animation-delay: 3s;
+}
+
+.hearts span:nth-child(6) {
+    left: 82%;
+    animation-delay: 5s;
+}
+
+.hearts span:nth-child(7) {
+    left: 92%;
+    animation-delay: 7s;
+}
+
+
+@keyframes heartFloat {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(0.5);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(360deg)
+            scale(1.3);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .card {
+        padding: 40px 25px;
+    }
+
+    .small-title {
+        letter-spacing: 3px;
+        font-size: 11px;
+    }
+
+    .message {
+        min-height: 230px;
+        line-height: 1.7;
+    }
+
+    .flower {
+        font-size: 45px;
+    }
+}
